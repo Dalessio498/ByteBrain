@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/resources/img/ByteBrain.png" alt="Logo">
+             <a href="/src/index.html"> <img src="/resources/img/ByteBrain.png" alt="Logo"></a>
         </div>
 
         <div class="nav-lvls">
@@ -29,9 +29,9 @@
         </div>
 
         <div class="contatos">
-            <a href=""><img src="/resources/img/github.png" alt=""></a>
-            <a href=""><img src="/resources/img/instagram.png" alt=""></a>
-            <a href=""><img src="/resources/img/ln.png" alt=""></a>
+            <a href="https://github.com/Dalessio498"><img src="/resources/img/github.png" alt=""></a>
+            <a href="https://www.instagram.com/dalessio.dev/"><img src="/resources/img/instagram.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/marco-antonio-dalessio-5a4b9a379/?locale=en_US"><img src="/resources/img/ln.png" alt=""></a>
         </div>
     </header>
 
@@ -70,42 +70,10 @@
 </body>
 
 <script>
-    let contador = 0;
-    function verificarResposta(idClicado, eCorreta) {
-        const botao = document.getElementById(idClicado)
-
-        const todasOpcoes = document.querySelectorAll(".opcs button")
-        contador++
-
-        if (eCorreta) {
-            botao.style.backgroundColor = "#2ecc71"
-            botao.style.color = "white"
-
-        }
-        else {
-            botao.style.backgroundColor = "red"
-            botao.style.color = "white"
-
-        }
-
-        if (contador >= 2 || eCorreta == true) {
-            bloquearTudo(todasOpcoes)
-        }
-
-        
-    }
-
-    function bloquearTudo(botoes){
-        botoes.forEach(btn => {
-            btn.disabled = true;
-            btn.style.cursor = "not-allowed";
-            btn.style.opacity = "0.6";
-        });
-    }
-
-    function mostrarDica(){
-        document.getElementById("dica-btn").innerHTML = "Quando o texto encontra o número, o JavaScript não soma, ele gruda!"
-    }
+function mostrarDica() {
+    document.getElementById("dica-btn").innerHTML = "Cuidado com as aspas! No JavaScript, texto + número não faz conta, ele apenas 'gruda' os dois."
+}
 </script>
+<script src="/src/index.js"></script>
 
 </html>

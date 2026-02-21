@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/resources/img/ByteBrain.png" alt="Logo">
+              <a href="/src/index.html"> <img src="/resources/img/ByteBrain.png" alt="Logo"></a>
         </div>
 
         <div class="nav-lvls">
@@ -24,9 +24,9 @@
         </div>
 
         <div class="contatos">
-            <a href=""><img src="/resources/img/github.png" alt=""></a>
-            <a href=""><img src="/resources/img/instagram.png" alt=""></a>
-            <a href=""><img src="/resources/img/ln.png" alt=""></a>
+            <a href="https://github.com/Dalessio498"><img src="/resources/img/github.png" alt=""></a>
+            <a href="https://www.instagram.com/dalessio.dev/"><img src="/resources/img/instagram.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/marco-antonio-dalessio-5a4b9a379/?locale=en_US"><img src="/resources/img/ln.png" alt=""></a>
         </div>
     </header>
 
@@ -37,13 +37,24 @@
                 <p>Qual será o output desse código<span> ?</span></p>
             </div>
             <div class="opcs">
-                <button id="alternativa1" type="button"><span class="num-q">1</span>10true</button>
-                <button id="alternativa2" type="button"><span class="num-q">2</span>11</button>
-                <button id="alternativa3" type="button"><span class="num-q">3</span>10</button>
-                <button id="alternativa4" type="button"><span class="num-q">4</span>Error</button>
+                <button onclick="verificarResposta('alternativa1', false)" id="alternativa1" type="button">
+                    <span class="num-q">1</span>10true
+                </button>
+
+                <button onclick="verificarResposta('alternativa2', false)" id="alternativa2" type="button">
+                    <span class="num-q">2</span>10
+                </button>
+
+                <button onclick="verificarResposta('alternativa3', false)" id="alternativa3" type="button">
+                    <span class="num-q">3</span>Error
+                </button>
+                
+                <button onclick="verificarResposta('alternativa4', true)" id="alternativa4" type="button">
+                    <span class="num-q">4</span>11
+                </button>
             </div>
             <div class="dica" id="dica">
-                <button id="dica-btn" type="button">
+                <button onclick="mostrarDica()" id="dica-btn" type="button">
                     <img src="/resources/img/tip.png" alt="">
                     <p>Mostrar dica</p>
                 </button>
@@ -52,5 +63,12 @@
     </div>
 
 </body>
+
+<script>
+function mostrarDica() {
+    document.getElementById("dica-btn").innerHTML = "Para o JavaScript, o true vale 1 e o false vale 0 na hora de fazer cálculos matemáticos."
+}
+</script>
+<script src="/src/index.js"></script>
 
 </html>
