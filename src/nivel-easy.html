@@ -16,11 +16,16 @@
         </div>
 
         <div class="nav-lvls">
-            <a href="/src/nivel-easy.html"><button class="dif-easy"><img src="/resources/img/dif-easy1.png" alt="">Nivel 1</button></a>
-            <a href="/src/nivel-easy2.html"><button class="dif-easy"><img src="/resources/img/dif-easy1.png" alt="">Nivel 2</button></a>
-            <a href=""><button class="dif-medium"><img src="/resources/img/dif-medium2.png" alt="">Nivel 3</button></a>
-            <a href=""><button class="dif-medium"><img src="/resources/img/dif-medium2.png" alt="">Nivel 4</button></a>
-            <a href=""><button class="dif-hard"><img src="/resources/img/dif-hard1.png" alt="">Nivel Final</button></a>
+            <a href="/src/nivel-easy.html"><button class="dif-easy"><img src="/resources/img/dif-easy1.png" alt="">Nivel
+                    1</button></a>
+            <a href="/src/nivel-easy2.html"><button class="dif-easy"><img src="/resources/img/dif-easy1.png"
+                        alt="">Nivel 2</button></a>
+            <a href="/src/nivel-medium.html"><button class="dif-medium"><img src="/resources/img/dif-medium2.png"
+                        alt="">Nivel 3</button></a>
+            <a href="/src/nivel-medium2.html"><button class="dif-medium"><img src="/resources/img/dif-medium2.png"
+                        alt="">Nivel 4</button></a>
+            <a href="/src/nivel-hard.html"><button class="dif-hard"><img src="/resources/img/dif-hard1.png" alt="">Nivel
+                    Final</button></a>
         </div>
 
         <div class="contatos">
@@ -37,13 +42,24 @@
                 <p>Qual será o output desse código<span> ?</span></p>
             </div>
             <div class="opcs">
-                <button id="alternativa1" type="button"><span class="num-q">1</span>Byte 2</button>
-                <button id="alternativa2" type="button"><span class="num-q">2</span>Byte2</button>
-                <button id="alternativa3" type="button"><span class="num-q">3</span>NaN</button>
-                <button id="alternativa4" type="button"><span class="num-q">4</span>Erro</button>
+                <button onclick="verificarResposta('alternativa1', false)" id="alternativa1" type="button">
+                    <span class="num-q">1</span>Byte 2
+                </button>
+
+                <button onclick="verificarResposta('alternativa2', true)" id="alternativa2" type="button">
+                    <span class="num-q">2</span>Byte2
+                </button>
+
+                <button onclick="verificarResposta('alternativa3', false)" id="alternativa3" type="button">
+                    <span class="num-q">3</span>NaN
+                </button>
+
+                <button onclick="verificarResposta('alternativa4', false)" id="alternativa4" type="button">
+                    <span class="num-q">4</span>Erro
+                </button>
             </div>
             <div class="dica" id="dica">
-                <button id="dica-btn" type="button">
+                <button onclick="mostrarDica()" id="dica-btn" type="button">
                     <img src="/resources/img/tip.png" alt="">
                     <p>Mostrar dica</p>
                 </button>
@@ -52,5 +68,44 @@
     </div>
 
 </body>
+
+<script>
+    let contador = 0;
+    function verificarResposta(idClicado, eCorreta) {
+        const botao = document.getElementById(idClicado)
+
+        const todasOpcoes = document.querySelectorAll(".opcs button")
+        contador++
+
+        if (eCorreta) {
+            botao.style.backgroundColor = "#2ecc71"
+            botao.style.color = "white"
+
+        }
+        else {
+            botao.style.backgroundColor = "red"
+            botao.style.color = "white"
+
+        }
+
+        if (contador >= 2 || eCorreta == true) {
+            bloquearTudo(todasOpcoes)
+        }
+
+        
+    }
+
+    function bloquearTudo(botoes){
+        botoes.forEach(btn => {
+            btn.disabled = true;
+            btn.style.cursor = "not-allowed";
+            btn.style.opacity = "0.6";
+        });
+    }
+
+    function mostrarDica(){
+        document.getElementById("dica-btn").innerHTML = "Quando o texto encontra o número, o JavaScript não soma, ele gruda!"
+    }
+</script>
 
 </html>
